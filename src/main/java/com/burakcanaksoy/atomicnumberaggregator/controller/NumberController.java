@@ -31,5 +31,11 @@ public class NumberController {
         NumberResponse responseData = numberService.getNumberDetails(request);
         return ResponseEntity.ok(ApiResponse.success("Sayı bilgileri başarıyla getirildi.", responseData));
     }
+
+    @PostMapping("/position")
+    public ResponseEntity<ApiResponse<NumberResponse>> getNumberPosition(@RequestBody NumberRequest request) {
+        NumberResponse responseData = numberService.getNumberDetails(request);
+        return ResponseEntity.ok(ApiResponse.success("Sayı konumu başarıyla getirildi.", responseData));
+    }
 }
-    
+     
