@@ -25,4 +25,11 @@ public class NumberController {
         NumberResponse responseData = numberService.getNumberDetails(request);
         return ResponseEntity.ok(ApiResponse.success("Sayı bilgileri başarıyla getirildi.", responseData));
     }
+
+    @PostMapping("/info")
+    public ResponseEntity<ApiResponse<NumberResponse>> getNumberInfo(@RequestBody NumberRequest request) {
+        NumberResponse responseData = numberService.getNumberDetails(request);
+        return ResponseEntity.ok(ApiResponse.success("Sayı bilgileri başarıyla getirildi.", responseData));
+    }
 }
+    
