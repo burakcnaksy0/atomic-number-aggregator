@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/numbers")
-public class NumberController {
+public class NumberController { 
 
     private final NumberService numberService;
 
@@ -33,6 +33,12 @@ public class NumberController {
     }
 
     @PostMapping("/position")
+    public ResponseEntity<ApiResponse<NumberResponse>> getNumberPosition(@RequestBody NumberRequest request) {
+        NumberResponse responseData = numberService.getNumberDetails(request);
+        return ResponseEntity.ok(ApiResponse.success("Sayı konumu başarıyla getirildi.", responseData));
+    }
+
+    @PostMapping("/messi")
     public ResponseEntity<ApiResponse<NumberResponse>> getNumberPosition(@RequestBody NumberRequest request) {
         NumberResponse responseData = numberService.getNumberDetails(request);
         return ResponseEntity.ok(ApiResponse.success("Sayı konumu başarıyla getirildi.", responseData));
